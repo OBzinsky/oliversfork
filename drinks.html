@@ -3,327 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Category Page</title>
+<title>Drinks Page</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-    }
-.item-image img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
+
+.page-grid {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.left-sidebar {
+    background: #f4f4f4;
+    padding: 20px;
+    border-right: 2px solid #ccc;
+}
+
+.left-sidebar a {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.right-sidebar {
+    background: #f9f9f9;
+    padding: 20px;
+    border-left: 2px solid #ccc;
+}
+
 .center-content {
-    text-align: center; /* centers content horizontally */
+    overflow-y: auto;
+    padding: 20px;
 }
 
 .category-image {
-    width: 100%;       /* take full width of parent or adjust as needed */
-    max-width: 400px;  /* optional: prevent it from being too large */
-    margin: 0 auto;    /* center container */
-    overflow: hidden;  /* hides any overflowing parts of the image */
+    width: 100%;
+    max-width: 500px;       /* limits how big it can grow */
+    margin: 0 auto 20px;    /* centers it */
+    aspect-ratio: 16 / 9;   /* keeps a fixed ratio */
+    border: 2px solid black;
+    background: #ddd;
 }
 
 .category-image img {
-    width: 100%;       /* fill the container width */
-    height: auto;      /* maintain aspect ratio */
-    object-fit: cover; /* cover container nicely, can also use 'contain' */
-   
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* fills nicely without stretching */
+}
+
+.category-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: bold;
 }
 
 
-    /* GRID LAYOUT: LEFT | CENTER | RIGHT */
-    .page-grid {
-        display: grid;
-        grid-template-columns: 0.5fr 2fr 0.5fr;
-        height: 100vh;
-        overflow: hidden;
-    }
+.item {
+    display: grid;
+    grid-template-columns: 120px 1fr 120px;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border-bottom: 2px solid #b6b4b4;
+}
 
-    /* LEFT SIDEBAR */
-    .left-sidebar {
-        background: #f4f4f4;
-        padding: 20px;
-        border-right: 2px solid #ccc;
-    }
+.item-image {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #000;
+    background: #fff;
+}
 
-    .left-sidebar a {
-        font-size: 20px;
-        color: black;
-        text-decoration: none;
-        font-weight: bold;
-    }
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-    /* RIGHT SIDEBAR (CART) */
-    .right-sidebar {
-        background: #f9f9f9;
-        padding: 20px;
-        border-left: 2px solid #ccc;
-    }
+.item-info {
+    font-size: 18px;
+}
 
-    .right-sidebar h2 {
-        font-size: 22px;
-        margin-bottom: 10px;
-    }
+.counter {
+    text-align: center;
+}
 
-    /* SCROLLABLE CENTER */
-    .center-content {
-        overflow-y: auto;
-        padding: 20px;
-    }
+.counter button {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 16px;
+}
 
-    /* CATEGORY IMAGE */
-    .category-image {
-        width: 100%;
-        height: 200px;
-        background: #ddd;
-        border: 2px solid black;
-      
-        margin-bottom: 20px;
-    }
+.cart-item {
+    display: none;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+}
 
-    /* CATEGORY TITLE */
-    .category-title {
-        text-align: center;
-        font-size: 26px;
-        margin-bottom: 25px;
-        font-weight: bold;
-    }
-
-    /* ITEM CARD LIST */
-    .item {
-        display: grid;
-        grid-template-columns: 120px 1fr 120px;
-        align-items: center;
-        gap: 20px;
-        padding: 15px;
-        border-bottom: 2px solid #b6b4b4;
-    }
-
-    .item-image {
-        width: 100px;
-        height: 100px;
-        border: 2px solid #000;
-        background: #fff;
-    }
-
-    .item-info {
-        font-size: 18px;
-    }
-
-    /* COUNTER (HIDDEN UNTIL HOVER) */
-    .counter {
-        display: none;
-        text-align: center;
-    }
-
-    .item:hover .counter {
-        display: block;
-    }
-
-    .counter button {
-        padding: 5px 10px;
-        margin: 5px;
-        font-size: 16px;
-    }
-
+.cart-item.active {
+    display: block;
+}
 </style>
 </head>
 <body>
 
 <div class="page-grid">
 
-    <!-- LEFT SIDE -->
+    <!-- LEFT -->
     <div class="left-sidebar">
         <a href="#">← Back (Home Page)</a>
     </div>
-<!-- CENTER SECTION -->
-<div class="center-content">
 
-    <div class="category-image">
-        <img src="/danish-drinks-images/images.jpg" alt="Drinks">
-    </div>
+    <!-- CENTER -->
+    <div class="center-content">
 
-    <div class="category-title">Drinks</div>
-
-
-    <!-- ITEM 1 -->
-<div class="item">
-    <div class="item-image">
-       <img src="/danish-drinks-images/coca-cola.webp" />
-        </a>
+        <div class="category-image">
+            <img src="/danish-drinks-images/images.jpg" alt="Drinks">
         </div>
 
-        <div class="item-info">
-        <div>Coca-Cola Bottle 330ml</div>
-        <div>Cost: €2.50</div>
+        <div class="category-title">Drinks</div>
+
+        <!-- ITEMS -->
+
+        <div class="item" data-name="Coca-Cola Bottle 330ml">
+            <div class="item-image"><img src="/danish-drinks-images/coca-cola.webp" /></div>
+            <div class="item-info"><div>Coca-Cola Bottle 330ml</div><div>Cost: €2.50</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
-        <div class="counter">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
-    </div>
-</div>
-
-
-        <!-- ITEM 2 -->
-        <div class="item">
-            <div class="item-image">
-                
-                <img src="/danish-drinks-images/pepsi.avif" />
-            </div>
-
-            <div class="item-info">
-                <div>Pepsi Bottle 750ml</div>
-                <div>Cost: €3.00</div>
-            </div>
-
-            <div class="counter">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-            </div>
+        <div class="item" data-name="Pepsi Bottle 750ml">
+            <div class="item-image"><img src="/danish-drinks-images/pepsi.avif" /></div>
+            <div class="item-info"><div>Pepsi Bottle 750ml</div><div>Cost: €3.00</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
-        <!-- ITEM 3 -->
-        <div class="item">
-            <div class="item-image">
-                <img src="/danish-drinks-images/fanta.avif" />
-            </div>
-
-            <div class="item-info">
-                <div>Fanta Bottle 500ml</div>
-                <div>Cost: €3.25</div>
-            </div>
-
-            <div class="counter">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-            </div>
+        <div class="item" data-name="Fanta Bottle 500ml">
+            <div class="item-image"><img src="/danish-drinks-images/fanta.avif" /></div>
+            <div class="item-info"><div>Fanta Bottle 500ml</div><div>Cost: €3.25</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
-<!-- Tropicana Apple Juice -->
-<div class="item">
-    <div class="item-image">
-        <img src="/danish-drinks-images/apple.webp" alt="Tropicana Apple Juice"/>
-    </div>
 
-    <div class="item-info">
-        <div>Tropicana Apple Juice 500ml</div>
-        <div>Cost: €3.50</div>
-    </div>
+        <div class="item" data-name="Tropicana Apple Juice 500ml">
+            <div class="item-image"><img src="/danish-drinks-images/apple.webp" /></div>
+            <div class="item-info"><div>Tropicana Apple Juice 500ml</div><div>Cost: €3.50</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
+        </div>
 
-    <div class="counter">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
-    </div>
-</div>
+        <div class="item" data-name="Tropicana Orange Juice 400ml">
+            <div class="item-image"><img src="/danish-drinks-images/orange.jpg" /></div>
+            <div class="item-info"><div>Tropicana Orange Juice 400ml</div><div>Cost: €3.50</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
+        </div>
 
-<!-- Tropicana Orange Juice -->
-<div class="item">
-    <div class="item-image">
-        <img src="/danish-drinks-images/orange.jpg" alt="Tropicana Orange Juice"/>
-    </div>
+        <div class="item" data-name="Tropical Zest Juice 300ml">
+            <div class="item-image"><img src="/danish-drinks-images/tropical-.webp" /></div>
+            <div class="item-info"><div>Tropical Zest Juice 300ml</div><div>Cost: €3.75</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
+        </div>
 
-    <div class="item-info">
-        <div>Tropicana Orange Juice 400ml</div>
-        <div>Cost: €3.50</div>
-    </div>
+        <div class="item" data-name="Tropicana Mango Juice 250ml">
+            <div class="item-image"><img src="/danish-drinks-images/mango.jpg" /></div>
+            <div class="item-info"><div>Tropicana Mango Juice 250ml</div><div>Cost: €3.75</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
+        </div>
 
-    <div class="counter">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
-    </div>
-</div>
+        <div class="item" data-name="Lipton Peach Ice Tea 500ml">
+            <div class="item-image"><img src="/danish-drinks-images/peach.avif" /></div>
+            <div class="item-info"><div>Lipton Peach Ice Tea 500ml</div><div>Cost: €3.00</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
+        </div>
 
-<!-- Tropicana Tropical Juice -->
-<div class="item">
-    <div class="item-image">
-        <img src="/danish-drinks-images/tropical-.webp" alt="Tropicana Tropical Juice"/>
-    </div>
-
-    <div class="item-info">
-        <div> Tropical Zest Juice 300ml</div>
-        <div>Cost: €3.75</div>
-    </div>
-
-    <div class="counter">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
-    </div>
-</div>
-
-<!-- Tropicana Mango Juice -->
-<div class="item">
-    <div class="item-image">
-        <img src="/danish-drinks-images/mango.jpg" alt="Tropicana Mango Juice"/>
-    </div>
-
-    <div class="item-info">
-        <div>Tropicana Mango Juice 250ml</div>
-        <div>Cost: €3.75</div>
-    </div>
-
-    <div class="counter">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
-    </div>
-</div>
-
-<!-- Tropicana Peach Ice Tea -->
-<div class="item">
-    <div class="item-image">
-        <img src="/danish-drinks-images/peach.avif" alt="Peach Ice Tea"/>
-    </div>
-
-    <div class="item-info">
-        <div>Lipton Peach Ice Tea 500ml</div>
-        <div>Cost: €3.00</div>
-    </div>
-
-    <div class="counter">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
-    </div>
-</div>
-
-<!-- Bottled Water -->
-<div class="item">
-    <div class="item-image">
-        <img src="/danish-drinks-images/water.jpg" alt="Bottled Water"/>
-    </div>
-
-    <div class="item-info">
-        <div>Bottled Water 500ml</div>
-        <div>Cost: €1.50</div>
-    </div>
-
-    <div class="counter">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
-    </div>
-</div>
+        <div class="item" data-name="Bottled Water 500ml">
+            <div class="item-image"><img src="/danish-drinks-images/water.jpg" /></div>
+            <div class="item-info"><div>Bottled Water 500ml</div><div>Cost: €1.50</div></div>
+            <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
+        </div>
 
     </div>
 
-    <!-- RIGHT SIDE (CART) -->
+    <!-- CART -->
     <div class="right-sidebar">
         <h2>Cart</h2>
-        <p>If an item is added it appears here.</p>
+        <div id="cart"></div>
     </div>
 
 </div>
+
+<script>
+// Get all the items and the cart area
+const items = document.querySelectorAll(".item");
+const cart = document.getElementById("cart");
+
+// Loop through each item
+items.forEach(function(item) {
+
+    // Get the name from data-name=""
+    const name = item.dataset.name;
+
+    // Get the buttons and count display
+    const minusBtn = item.querySelector(".minus");
+    const plusBtn = item.querySelector(".plus");
+    const countDisplay = item.querySelector(".count");
+
+    // Store quantity (like a variable in C)
+    let count = 0;
+
+    // Create an empty cart line for this item
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+    cartItem.innerText = name + " x0";
+    cart.appendChild(cartItem);
+
+    // When + button is clicked
+    plusBtn.onclick = function () {
+        count = count + 1;
+        countDisplay.innerText = count;
+        updateCart();
+    };
+
+    // When - button is clicked
+    minusBtn.onclick = function () {
+        if (count > 0) {
+            count = count - 1;
+            countDisplay.innerText = count;
+            updateCart();
+        }
+    };
+
+    // Function to update the cart display
+    function updateCart() {
+        if (count > 0) {
+            cartItem.classList.add("active");
+            cartItem.innerText = name + " x" + count;
+        } else {
+            cartItem.classList.remove("active");
+        }
+    }
+});
+</script>
+
 
 </body>
 </html>
