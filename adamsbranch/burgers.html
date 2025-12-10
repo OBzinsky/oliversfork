@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+   <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -7,54 +7,121 @@
 
          <link rel="stylesheet" href="adam.css">
 
+    <style>
+
+.nav {
+    background:#b30000;
+    color:white;
+    padding:20px;
+    font-size:32px;
+    text-align:center;
+    font-weight:800;
+    border-bottom:4px solid #7a0000;
+}
+
+.menu-item { margin-bottom: 40px; background:white; padding:20px; border-radius:12px; text-align: center;}
+.menu-item img { width: 280px; border-radius: 10px; display: block; margin: 0 auto 10px auto; }
+.price { font-size: 18px; color: #b30000; font-weight: bold; }
+.footer { background:#b30000 ; color:white; }
+
+
+</style>
+
     </head>
     <body>
-
-        <div class="nav"> Burger menu</div>
-
-
-        <div class="click">
-
-            <h1>Fresh Beef Burger</h1>
-        <img src="images/burger.jpeg">
-<br>
-        <p>Select your Sauce:</p>
-            
-            <select id="Sauce" name="Sauce" size="1">
-            <option value="name">Select</option>
-            <option value="Burger Sauce">Burger Sauce</option>
-            <option value="Garlic Mayo">Garlic Mayo</option>
-            <option value="Peri-Peri">Peri-Peri</option>
-            </select>
-
-            
-                <h1>Fresh Chicken Burger</h1>
-        <img src="images/chicken.jpg">
-<br>
-        <p>Select your Sauce:</p>
-            
-            <select id="Sauce" name="Sauce" size="1">
-            <option value="name">Select</option>
-            <option value="Burger Sauce">Burger Sauce</option>
-            <option value="Garlic Mayo">Garlic Mayo</option>
-            <option value="Peri-Peri">Peri-Peri</option>
-            </select>
+<div class="nav">Burger Menu</div>
 
 
-                <h1>Fresh Grilled Chicken Burger</h1>
-        <img src="images/grilled.jpg">
-<br>
-        <p>Select your Sauce:</p>
-            
-            <select id="Sauce" name="Sauce" size="1">
-            <option value="name">Select</option>
-            <option value="Burger Sauce">Burger Sauce</option>
-            <option value="Garlic Mayo">Garlic Mayo</option>
-            <option value="Peri-Peri">Peri-Peri</option>
-            </select>
+<div class="click">
 
-            </div>
 
-            <div class="footer"> Footer</div>
+<div class="menu-item">
+<h1>Fresh Beef Burger</h1>
+<img src="images/burger.jpeg">
+<p class="price">€8.99</p>
+<p>Select your Sauce:</p>
+<select>
+<option>Select</option>
+<option>Burger Sauce</option>
+<option>Garlic Mayo</option>
+<option>Peri-Peri</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+<div class="menu-item">
+<h1>Crispy Chicken Burger</h1>
+<img src="images/chicken.jpg">
+<p class="price">€9.49</p>
+<p>Select your Sauce:</p>
+<select>
+<option>Select</option>
+<option>Burger Sauce</option>
+<option>Garlic Mayo</option>
+<option>Peri-Peri</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+<div class="menu-item">
+<h1>Grilled Chicken Burger</h1>
+<img src="images/grilled.jpg">
+<p class="price">€9.99</p>
+<p>Select your Sauce:</p>
+<select>
+<option>Select</option>
+<option>Burger Sauce</option>
+<option>Garlic Mayo</option>
+<option>Peri-Peri</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+<div class="menu-item">
+<h1>Double Cheeseburger</h1>
+<img src="images/double.jpg">
+<p class="price">€11.49</p>
+<p>Select your Sauce:</p>
+<select>
+<option>Select</option>
+<option>Burger Sauce</option>
+<option>Garlic Mayo</option>
+<option>Peri-Peri</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+<div class="menu-item">
+<h1>Vegan Plant Burger</h1>
+<img src="images/veggieburger.jpg">
+<p class="price">€10.49</p>
+<p>Select your Sauce:</p>
+<select>
+<option>Select</option>
+<option>Vegan Mayo</option>
+<option>Sweet Chili</option>
+<option>BBQ</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+</div>
+
+<div id="cart" style="background:white; margin:20px; padding:20px; border-radius:12px;">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p><strong>Total: €<span id="cart-total">0.00</span></strong></p>
+</div>
+
+<div class="footer">© 2025 Swift-Noms Takeout — Fresh Food, Fast Service</div>
+
+
+<script src="menu.js"></script>
+
     </body>
     </html>
