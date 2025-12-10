@@ -1,49 +1,62 @@
+body {
+background: #fff5f5;
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+
 .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+display: flex;
+justify-content: center;
+gap: 40px;
+}
+
+header {
+background: #b30000;
+padding: 30px 20px;
+text-align: center;
+color: white;
+font-size: 40px;
+font-weight: 900;
+letter-spacing: 1px;
+border-bottom: 4px solid #7a0000;
 }
 
 .menu-box {
-    background: white;
-    border-radius: 10px;
-    padding: 40px 10px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    color: #1E3A8A;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border: 2px solid transparent;
-    transition: 0.25s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+background: white;
+width: 260px;
+padding: 30px 20px;
+border-radius: 16px;
+text-align: center;
+font-size: 26px;
+font-weight: bold;
+text-decoration: none;
+color: #b30000;
+transition: 0.25s;
+border: 3px solid transparent;
 }
 
 .menu-box:hover {
-    transform: translateY(-6px);    
-    border-color: #1E3A8A;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+transform: scale(1.06);
+border-color: #b30000;
+background: #ffe5e5;
 }
 
 .click{
-    background: white;
-    border-radius: 10px;
-    padding: 40px 10px;
-    text-align: left;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
+background: white;
+border-radius: 10px;
+padding: 40px 10px;
+text-align: left;
+text-decoration: none;
+font-size: 20px;
+font-weight: 600;
 }
+
 .footer{
-                background-color: grey;
-                width: 100%;
-                min-height: 50px;
-                line-height: 50px;
-                margin-top: 10px;
-                text-align: center;
-                font-size: small;
-                display: flex;
-                justify-content: center;
-            }
+margin-top: 120px;
+background: #b30000;
+color: white;
+text-align: center;
+padding: 20px;
+font-size: 14px;
+}

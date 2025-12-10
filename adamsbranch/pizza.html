@@ -7,55 +7,115 @@
 
          <link rel="stylesheet" href="adam.css">
 
+    <style>
+
+.nav {
+background:#b30000;
+color:white;
+padding:20px;
+font-size:32px;
+text-align:center;
+font-weight:800;
+border-bottom:4px solid #7a0000;
+}
+.menu-item { margin-bottom: 40px; background:white; padding:20px; border-radius:12px; text-align: center;}
+.menu-item img { width: 280px; border-radius: 10px; display: block; margin: 0 auto 10px auto; }
+.price { font-size: 18px; color: #b30000; font-weight: bold; }
+.footer { background:#b30000; color:white; }
+
+</style>
+
     </head>
     <body>
-
-        <div class="nav"> Pizza Menu</div>
-
-
-       <div class="click">
-
-        <h1>Fresh Cheese Pizza</h1>
-        <img src="images/pizza.jpeg">
-<br>
-        <p>Select your size:</p>
-            
-            <select id="size" name="size" size="1">
-            <option value="name">Select</option>
-            <option value="small">small €10.99</option>
-            <option value="medium">medium €14.99</option>
-            <option value="large">large €18.99</option>
-            </select>
+<div class="nav">Pizza Menu</div>
 
 
-            <h1>Fresh Pepperoni Pizza</h1>
-        <img src="images/pep pizza.jpg">
-<br>
-        <p>Select your size:</p>
-            
-            <select id="size" name="size" size="1">
-            <option value="name">Select</option>
-            <option value="small">small €10.99</option>
-            <option value="medium">medium €14.99</option>
-            <option value="large">large €18.99</option>
-            </select>
+<div class="click">
 
 
-            <h1>Fresh Meat Feast Pizza</h1>
-        <img src="images/meat.jpg">
-<br>
-        <p>Select your size:</p>
-            
-            <select id="size" name="size" size="1">
-            <option value="name">Select</option>
-            <option value="small">small €10.99</option>
-            <option value="medium">medium €14.99</option>
-            <option value="large">large €18.99</option>
-            </select>
-            
+<div class="menu-item">
+<h1>Fresh Cheese Pizza</h1>
+<img src="images/pizza.jpeg">
+<p class="price">From €10.99</p>
+<p>Select your size:</p>
+<select>
+<option>Select</option>
+<option>Small €10.99</option>
+<option>Medium €14.99</option>
+<option>Large €18.99</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
 </div>
 
-<div class="footer"> Footer</div>
+
+<div class="menu-item">
+<h1>Pepperoni Pizza</h1>
+<img src="images/pep pizza.jpg">
+<p class="price">From €11.49</p>
+<select>
+<option>Select</option>
+<option>Small €11.49</option>
+<option>Medium €15.49</option>
+<option>Large €19.49</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+<div class="menu-item">
+<h1>Meat Feast Pizza</h1>
+<img src="images/meat.jpg">
+<p class="price">From €12.99</p>
+<select>
+<option>Select</option>
+<option>Small €12.99</option>
+<option>Medium €16.99</option>
+<option>Large €20.99</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+<div class="menu-item">
+<h1>BBQ Chicken Pizza</h1>
+<img src="images/bbqchicken.jpg">
+<p class="price">From €12.49</p>
+<select>
+<option>Select</option>
+<option>Small €12.49</option>
+<option>Medium €16.49</option>
+<option>Large €20.49</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+<div class="menu-item">
+<h1>Veggie Supreme Pizza</h1>
+<img src="images/veggie.jpg">
+<p class="price">From €11.49</p>
+<select>
+<option>Select</option>
+<option>Small €11.49</option>
+<option>Medium €15.49</option>
+<option>Large €19.49</option>
+</select>
+<button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+</div>
+
+<div id="cart" style="background:white; margin:20px; padding:20px; border-radius:12px;">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p><strong>Total: €<span id="cart-total">0.00</span></strong></p>
+</div>
+
+
+<div class="footer">© 2025 Swift-Noms Takeout — Fresh Food, Fast Service</div>
+
+    <script src="menu.js"></script>
 
     </body>
     </html>
