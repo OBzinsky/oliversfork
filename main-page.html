@@ -6,23 +6,41 @@
   <title>Restaurant Homepage</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #fff; color: #333; }
-    header { background: #222; color: #fff; padding: 1em 0; text-align: center; }
-    nav { margin-top: 0.5em; }
-    nav button {
+    header { background:#b30000; color: #fff; padding: 1em 0; }
+    .logo-container {
+      display: flex; align-items: center; justify-content: center; gap: 1em;
+    }
+    .logo-container img { width: 80px; }
+    nav { margin-top: 0.5em; text-align: center; }
+    nav a {
       background: #444; color: #fff; border: none; padding: 0.5em 1em;
-      margin: 0 0.5em; cursor: pointer; border-radius: 4px;
+      margin: 0 0.5em; cursor: pointer; border-radius: 4px; text-decoration: none;
+      display: inline-block;
     }
     .section-title { text-align: center; font-size: 1.8em; margin: 1em 0; }
-    .deals { display: flex; justify-content: center; gap: 1em; padding: 0 2em; }
-    .deals img { width: 30%; border-radius: 8px; }
+
+    /* Deals section with 3 boxes */
+    .deals {
+      display: flex; justify-content: center; gap: 1em; padding: 2em;
+    }
+    .deal-box {
+      width: 250px; height: 180px;
+      border: 2px solid #ccc; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2em; color: #999; background: #fdfdfd;
+    }
+
+    /* Menu grid fixed to 3 columns */
     .menu-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* always 3 per row */
       gap: 1em; padding: 2em;
     }
     .menu-item {
       text-align: center; border: 1px solid #ccc; border-radius: 8px; padding: 1em;
     }
     .menu-item img { width: 100%; border-radius: 8px; }
+
     .contact-map {
       display: flex; flex-wrap: wrap; justify-content: space-around;
       padding: 2em; background: #f9f9f9;
@@ -42,25 +60,30 @@
 <body>
 
   <header>
-    <h1>Swift Noms</h1>
+    <div class="logo-container">
+      <h1>Swift Noms</h1>
+      <a href="main-page.html"><img src="danish-drinks-images/Logo design for a re.png" alt="Logo"></a>
+    </div>
     <nav>
-      <button>Menu</button>
-      <button>About US</button>
-      <button>Find Us</button>
-      <button>Terms & Conditions</button>
+      <a href="#menu">Menu</a>
+      <a href="#about">About Us</a>
+      <a href="#findus">Find Us</a>
+      <a href="#terms">Terms & Conditions</a>
     </nav>
   </header>
 
+  <!-- Deals Section -->
   <section>
     <div class="section-title">Deals / Combos</div>
     <div class="deals">
-      <img src="pizza.jpg" alt="Pizza Deal">
-      <img src="fries.jpg" alt="Fries Deal">
-      <img src="burger.jpg" alt="Burger Deal">
+      <div class="deal-box">Add Image Here</div>
+      <div class="deal-box">Add Image Here</div>
+      <div class="deal-box">Add Image Here</div>
     </div>
   </section>
 
-  <section>
+  <!-- Menu Section -->
+  <section id="menu">
     <div class="section-title">Menu</div>
     <div class="menu-grid">
       <div class="menu-item">
@@ -76,7 +99,7 @@
         <p>Kebab / Wraps</p>
       </div>
       <div class="menu-item">
-        <a href="drinks.html"><img src="danish-drinks-images/6660ca666d7a7bddccd02b3b_Assorted colorful drinks garnished with ice and fruit slices.webp" alt="Pizza"></a>
+        <a href="drinks.html"><img src="danish-drinks-images/6660ca666d7a7bddccd02b3b_Assorted colorful drinks garnished with ice and fruit slices.webp" alt="Drinks"></a>
         <p>Drinks</p>
       </div>
       <div class="menu-item">
@@ -90,7 +113,16 @@
     </div>
   </section>
 
-  <section class="contact-map">
+  <!-- About Us Section -->
+  <section id="about">
+    <div class="section-title">About Us</div>
+    <p style="text-align:center; max-width:600px; margin:auto;">
+      Welcome to Swift Noms! We serve delicious fast food with a focus on quality and taste.
+    </p>
+  </section>
+
+  <!-- Contact + Map Section -->
+  <section id="findus" class="contact-map">
     <form>
       <h2>Contact Us</h2>
       <input type="text" placeholder="Name" required />
@@ -105,21 +137,24 @@
     ></iframe>
   </section>
 
+  <!-- Terms Section -->
+  <section id="terms">
+    <div class="section-title">Terms & Conditions</div>
+    <p style="text-align:center; max-width:600px; margin:auto;">
+      By using this site, you agree to our restaurant’s terms and conditions.
+    </p>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>
-      <a href="#">Contact Us</a>
-      <a href="#">Forum</a>
-      <a href="#">Map</a>
-      <a href="#">Address</a>
-      <a href="#">Terms & Conditions</a>
+      <a href="#findus">Contact Us</a>
+      <a href="#forum">Forum</a>
+      <a href="#findus">Map</a>
+      <a href="#findus">Address</a>
+      <a href="#terms">Terms & Conditions</a>
     </p>
   </footer>
-
-</body>
-</html>
-
-</body>
-</html>
 
 </body>
 </html>
