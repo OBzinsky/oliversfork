@@ -161,6 +161,22 @@
       <a href="#terms">Terms & Conditions</a>
     </p>
   </footer>
+<script>
+// Select all deal images
+const dealImages = document.querySelectorAll(".deal-box img");
 
+// Attach click events
+dealImages.forEach(img => {
+  img.addEventListener("click", () => {
+    if (img.alt === "Pizza") {
+      alert(" Pizzas are 30% off!");
+    } else if (img.alt === "Burger") {
+      alert(" Burgers are 30% off today!");
+    } else if (img.alt === "Kebab") {
+      alert(" Kebabs are 30% off today!");
+    }
+  });
+});
+</script>
 </body>
 </html>
