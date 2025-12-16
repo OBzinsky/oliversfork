@@ -1,0 +1,149 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Page layout */
+.page-grid {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff8f5; /* soft background */
+}
+
+/* Left sidebar */
+.left-sidebar {
+  background: #fbe0e0; /* light warm red */
+  padding: 20px;
+  border-right: 2px solid #d46a6a;
+}
+
+.left-sidebar a {
+  font-size: 20px;
+  color: #b30000; /* deep red */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Right sidebar (Cart) */
+.right-sidebar {
+  background: #fff3e6; /* soft orange tint */
+  padding: 20px;
+  border-left: 2px solid #d46a6a;
+}
+
+.right-sidebar h2 {
+  color: #b30000;
+  margin-bottom: 10px;
+}
+
+/* Center content */
+.center-content {
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* Category image */
+.category-image {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  aspect-ratio: 16 / 9;
+  border: 2px solid #b30000;
+  background: #ffe5e5;
+  border-radius: 10px;
+  min-width: 300px;
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Title */
+.category-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #b30000;
+}
+
+/* Items */
+.item {
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-bottom: 2px solid #e0b4b4;
+  background-color: #fff;
+}
+
+.item-image {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #b30000;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.item-info {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Counter buttons */
+.counter {
+  text-align: center;
+}
+
+.counter button {
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 16px;
+  background-color: #ff9999; /* soft red buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.counter button:hover {
+  background-color: #e06666; /* darker hover */
+}
+
+/* Cart items */
+.cart-item {
+  display: none;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.cart-item.active {
+  display: block;
+  color: #333;
+}
+
+/* Footer */
+.footer {
+  background: #b30000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}

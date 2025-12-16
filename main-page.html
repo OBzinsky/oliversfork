@@ -4,65 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Restaurant Homepage</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #fff; color: #333; }
-    header { background:#b30000; color: #fff; padding: 1em 0; }
-    .logo-container {
-      display: flex; align-items: center; justify-content: center; gap: 1em;
-    }
-    .logo-container img { width: 80px; }
-    nav { margin-top: 0.5em; text-align: center; }
-    nav a {
-      background: #444; color: #fff; border: none; padding: 0.5em 1em;
-      margin: 0 0.5em; cursor: pointer; border-radius: 4px; text-decoration: none;
-      display: inline-block;
-    }
-    .section-title { text-align: center; font-size: 1.8em; margin: 1em 0; }
-
-    /* Deals section with 3 boxes */
-    .deals {
-      display: flex; justify-content: center; gap: 1em; padding: 2em;
-    }
-    .deal-box {
-      width: 250px; height: 180px;
-      border: 2px solid #ccc; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2em; color: #999; background: #fdfdfd;
-    }
-
-    /* Menu grid fixed to 3 columns */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* always 3 per row */
-      gap: 1em; padding: 2em;
-    }
-    .menu-item {
-      text-align: center; border: 1px solid #ccc; border-radius: 8px; padding: 1em;
-    }
-    .menu-item img { width: 100%; border-radius: 8px; }
-
-    .contact-map {
-      display: flex; flex-wrap: wrap; justify-content: space-around;
-      padding: 2em; background: #f9f9f9;
-    }
-    form { max-width: 400px; display: flex; flex-direction: column; gap: 1em; }
-    input, textarea {
-      padding: 0.5em; border: 1px solid #ccc; border-radius: 4px;
-    }
-    iframe { border: 0; width: 400px; height: 300px; border-radius: 8px; }
-    footer {
-      background: #222; color: #fff; text-align: center; padding: 1em;
-      font-size: 0.9em;
-    }
-    footer a { color: #ddd; margin: 0 1em; text-decoration: none; }
-  </style>
+  <link rel="stylesheet" href="main-page.css">
+  
 </head>
 <body>
 
   <header>
     <div class="logo-container">
       <h1>Swift Noms</h1>
-      <a href="main-page.html"><img src="danish-drinks-images/Logo design for a re.png" alt="Logo"></a>
+      <a href="main-page.html"><img src="images/Logo design for a re.png" alt="Logo"></a>
     </div>
     <nav>
       <a href="#menu">Menu</a>
@@ -72,15 +22,21 @@
     </nav>
   </header>
 
-  <!-- Deals Section -->
-  <section>
-    <div class="section-title">Deals / Combos</div>
-    <div class="deals">
-      <div class="deal-box">Add Image Here</div>
-      <div class="deal-box">Add Image Here</div>
-      <div class="deal-box">Add Image Here</div>
+<!-- Deals Section -->
+<section>
+  <div class="section-title">Deals / Combos</div>
+  <div class="deals">
+    <div class="deal-box">
+      <img src="images/pizza-deals.png" height="165" width="100" alt="Pizza">
     </div>
-  </section>
+    <div class="deal-box">
+      <img src="images/burger-deals.png"  width="100" alt="Burger">
+    </div>
+    <div class="deal-box">
+      <img src="images/kebab-deals.png" width="100" alt="Kebab">
+    </div>
+  </div>
+</section>
 
   <!-- Menu Section -->
   <section id="menu">
@@ -93,6 +49,12 @@
       <div class="menu-item">
         <a href="adamsbranch/burgers.html"><img src="adamsbranch/images/burger.jpeg" alt="Burger"></a>
         <p> <b>Burgers </b></p>
+        <a href="pizza.html"><img src="images/pizza.jpeg" alt="Pizza"></a>
+        <p>Pizza</p>
+      </div>
+      <div class="menu-item">
+        <a href="burgers.html"><img src="images/burger.jpeg" alt="Burger"></a>
+        <p>Burgers</p>
       </div>
       <div class="menu-item">
         <a href="Kebab.html"><img src="oliverbranch/Pictures/kebabswraps.jpg" alt="Kebabs/Wraps"></a>
@@ -101,6 +63,8 @@
       <div class="menu-item">
         <a href="drinks.html"><img src="danish-drinks-images/6660ca666d7a7bddccd02b3b_Assorted colorful drinks garnished with ice and fruit slices.webp" alt="Drinks"></a>
         <p> <b> Drinks </b></p>
+        <a href="drinks.html"><img src="images/6660ca666d7a7bddccd02b3b_Assorted colorful drinks garnished with ice and fruit slices.webp" alt="Drinks"></a>
+        <p>Drinks</p>
       </div>
       <div class="menu-item">
         <a href="oliverbranch/sides.html"><img src="oliverbranch/Pictures/side_selection.png" alt="Sides"></a>
@@ -155,6 +119,59 @@
       <a href="#terms">Terms & Conditions</a>
     </p>
   </footer>
+<script>
+// Select all deal images
+let kidsClickCount = 0;
 
+// Grab the menu grid
+const menuGrid = document.querySelector('.menu-grid');
+
+// Grab specific menu items
+const pizzaItem   = document.querySelector('.menu-item img[alt="Pizza"]').parentElement;
+const burgerItem  = document.querySelector('.menu-item img[alt="Burger"]').parentElement;
+const drinksItem  = document.querySelector('.menu-item img[alt="Drinks"]').parentElement;
+const kebabItem   = document.querySelector('.menu-item img[alt="Kebab/Wraps"]').parentElement;
+const sidesItem   = document.querySelector('.menu-item img[alt="Sides"]').parentElement;
+const kidsMealItem= document.querySelector('.menu-item img[alt="Kids Meal"]').parentElement;
+
+kidsMealItem.addEventListener("click", () => {
+  kidsClickCount++;
+
+  if (kidsClickCount === 3) {
+    // Change layout to 2 columns
+    menuGrid.style.gridTemplateColumns = "repeat(2, 1fr)";
+
+    // Hide unwanted items
+    sidesItem.style.display = "none";
+    kidsMealItem.style.display = "none";
+    kebabItem.style.display = "none";
+
+    // Show only pizza, burger, drinks
+    pizzaItem.style.display = "block";
+    burgerItem.style.display = "block";
+    drinksItem.style.display = "block";
+
+    // Place drinks centered on the next row (span both columns)
+    drinksItem.style.gridColumn = "1 / span 2";
+    drinksItem.style.textAlign = "center";
+  }
+});
+
+
+const dealImages = document.querySelectorAll(".deal-box img");
+
+// Attach click events
+dealImages.forEach(img => {
+  img.addEventListener("click", () => {
+    if (img.alt === "Pizza") {
+      alert(" Pizzas are 30% off!");
+    } else if (img.alt === "Burger") {
+      alert(" Burgers are 30% off today!");
+    } else if (img.alt === "Kebab") {
+      alert(" Kebabs are 30% off today!");
+    }
+  });
+});
+</script>
 </body>
 </html>
