@@ -1,6 +1,5 @@
-Here’s a structured documentation draft for your GitHub project. It explains the purpose, structure, and usage of the repository so that collaborators or future maintainers can quickly understand it.
-
 📖 Project Documentation: Group-C-project
+
 1. Overview
 The Group-C-project is a collaborative web development project hosted on GitHub. It primarily consists of HTML, CSS, and JavaScript files that together form a restaurant-style website. The project includes multiple pages such as a homepage, drinks page, kebab page, and supporting assets (images, stylesheets).
 • 	Languages used: HTML (92.3%), JavaScript (5.1%), CSS (2.6%)
