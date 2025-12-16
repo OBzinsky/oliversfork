@@ -2,28 +2,212 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styler.css">
-    <title> Kidsmeal </title>
-</head>
-<body>
+    <title> Kids Meals Page</title>
+    <style> 
 
-    <header>
-        <h1> Kids meals</h1>
-    </header>
+    body { 
+        font-family: Arial, sans-serif;
+        background: #fdf6ec;
+        margin: 20px; 
+    } 
+    .container { 
+        display: flex;
+        gap: 60px;
+    }
+    .main { 
+        flex: 2; 
+    }
+    .sidebar { 
+        flex: 1;
+        background: #fff;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px; 
+    }
+    h2 { 
+        margin-bottom: 10px;
+        border-radius: 8px;
+    }
+    .search-bar input { 
+        width: 100%;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc; 
+        margin-bottom: 20px; 
+    }
+    .product { 
+        background: #fff;
+        padding: 10px; 
+        margin-bottom: 10px;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        width: 100%
+    }
+    .product-name { 
+        font-weight: bold; 
+    }
+    .product-price { 
+        color: #d35400; 
+    }
+    .cart-empty { 
+        color: #888;
+        font-style: italic; 
+    } 
+    p {
+        background-color: #222;
+        border-radius: 8px;
+        text-align: center;
+        color: #ccc;
+    }
+    .checkbox {
+        align-items: center;
+    }
+    .product-img { 
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        margin-left: auto;
+    }
+    h4 {
+        background-color: #FF0000;
+        border-radius: 8px;
+        text-align: center;
+        color: white;
+    }
+    footer {
+      background: #222; 
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+    }
+    footer a { color: #ddd;
+        margin: 0 1em;
+        text-decoration: none; 
+    }
+    footer { 
+        position: fixed;
+        bottom: 0; left: 0;
+        width: 100%;
+        color: white;
+        padding: 15px;
+        text-align: center; 
+    }
+
+    </style>
+</head> 
+<body> 
+    <div class="container">
+        <div class="main">
+        <h2> <b>Kids Meal Selection Selection </b></h2>
+        <h3> <b> Happy Meal Selection</b></h3>
+        <div class="product">
+            <div class="product-name"> Happy Meal ( Hamburger )</div>
+            <div class="product-price">( €4.50 ) </div> 
+            
+            <button onclick="addCart('Hamburger HM', 5.50)">Add to cart</button>
+            <img src="Pictures/mcdonaldsHM.png" class="product-img">
+        </div> 
+        <div class="product"> 
+            <div class="product-name"> Happy Meal ( Cheeseburger )</div> 
+            <div class="product-price">( €4.50 ) </div>
+    
+            <button onclick="addCart('Cheeseburger HMs', 5.00)">Add to cart</button>
+            <img src="Pictures/cheesburger meal.png" class="product-img">
+        </div> 
+        <div class="product"> 
+            <div class="product-name">Happy Meal ( Fish )</div>
+            <div class="product-price">( €4.50 ) </div>
+
+            <button onclick="addCart(' Fish HM', 4.50)">Add to cart</button>
+            <img src="Pictures/fish meal.png" class="product-img">
+        </div>
+        <div class="product">
+            <div class="product-name">Happy Meal ( Mayo Chicken )</div>
+            <div class="product-price">( €4.50 )</div>
+        
+            <button onclick="addCart('Mayo Chicken HM', 3.50)">Add to cart</button>
+            <img src="Pictures/Mayo Chicken.png" class="product-img">
+        </div>
+        <div class="product">
+            <div class="product-name">Happy Meal ( McNugget )</div>
+            <div class="product-price">( €4.50 )</div>
+        
+            <button onclick="addCart(' Mcnugget HM', 4.20)">Add to cart</button>
+            <img src="Pictures/Chicken mcnugget meal.png" class="product-img">
+        </div>
     </div>
-    <div name="options">
-    <img src="Pictures/mcdonaldsHM.png" alt="McDonald's Happy meal">
-    <p> Standard Happy Meal </p>
-    <br>
-    <img src="Pictures/cheesburger meal.png" alt="Curly fries">
-    <p> Cheeseburger Meal </p>
-    <br>
-    <img src="Pictures/fish meal.png" alt="patatas bravas">
-    <p> Fish meal </p>
-    <br>
-    <img src="Pictures/Chicken mcnugget meal.png" alt="garlic bread">
-    <p> Chicken mcnugget Meal (4 piece) </p>
+    <div class="sidebar">
+        <h2>Your order</h2>
+        <div id="cart"></div>
+        <h3 id="total">Total: €0.00</h3>
+        <h4 id="checkout"> Checkout</h4>
+        <p> Sauce Selection</p>
+        <button type="checkbox" onclick="addCart('Ketchup', 0.50)"> Ketchup (€ 0.50) </button>
+        <br>
+        <button type="checkbox" onclick="addCart('Mayonaise', 0.30)"> Mayonaise ( € 0.30) </button>
+        <br>
+        <button type="checkbox" onclick="addCart('Mustard', 0.40)"> Mustard (€ 0.40) </button>
+        <hr>
+        <!-- I dont know how to get an image into the sidebar-->
+    </div>
+</div>
+</div>
+<script> 
+var cart = {};
 
+function addCart(name, price) {
+     if (!cart[name]) {
+         cart[name] = { qty: 1, price: price }; 
+    } else {
+         cart[name].qty++; 
+    } 
+    updateCart(); 
+
+} 
+function changeQty(name, amount) {
+    cart[name].qty += amount;
+    if (cart[name].qty <= 0) delete cart[name];
+    updateCart(); 
+}
+function updateCart() {
+    const cartDiv = document.getElementById("cart");
+    cartDiv.innerHTML = "";
+    var total = 0;
+    for (var item in cart) {
+        const entry = cart[item];
+        total += entry.qty * entry.price;
+
+        cartDiv.innerHTML +=`
+        
+        <div class="cart-item">
+        <strong>${item}</strong><br>
+        €${entry.price.toFixed(2)} × ${entry.qty}
+        <br> <button class="qty-btn" onclick="changeQty('${item}', -1)">-</button>
+        <button class="qty-btn" onclick="changeQty('${item}', 1)">+</button>
+        </div> 
+        `; 
+    } 
+    document.getElementById("total").innerText = "Total: €" + total.toFixed(2); 
+
+    if (Object.keys(cart).length === 0) {
+        cartDiv.innerHTML = "<p style='color:#888;'>Cart is empty</p>"; 
+    } 
+} 
+</script>
+
+  <footer>
+    © 2025 Swift Noms Ltd.
+    <p>
+      <a href="#findus">Contact Us</a>
+      <a href="#forum">Forum</a>
+      <a href="#findus">Map</a>
+      <a href="#findus">Address</a>
+      <a href="#terms">Terms & Conditions</a>
+    </p>
+  </footer>
 </body>
 </html>

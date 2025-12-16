@@ -42,4 +42,22 @@
             color: #fff;
              padding: 1em 0; 
         }
-      
+        .cartitem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 10px 0;
+        }
+        .cartitem img {
+            width: 70px;
+            height: auto;
+            border-radius: 8px;
+        } 
+        .items {
+            display: flex;
+            flex-direction: column;
+        }
+        .button {
+            padding: 4px 10px;
+        }
