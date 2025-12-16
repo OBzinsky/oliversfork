@@ -1,0 +1,33 @@
+         h1{
+            color: white;
+            font-size: 22px;
+            font-family: Arial;
+            background-color: darkgray;
+        }
+
+        .name{
+            background-color: lightblue;
+            border: 1px solid grey
+        }
+        h2{
+            font-family: Verdana;
+            font-size: 18px;
+            background-color: lightgrey;
+        }
+        .profile{
+            font-size: 14px;
+            font-family: Verdana;
+        }
+        a:link{
+            color: blue
+        }
+        a:hover, a:active{
+            color: red;
+            font-weight: 1000;
+        }
+        h3{
+            background-color: orange;
+            color: green
+        }
+        
+      

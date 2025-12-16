@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Order Page</title>
+    <link rel="stylesheet" href="styler.css">
+    <style> 
+    body { font-family: Arial, sans-serif; background: #fdf6ec; margin: 20px; } 
+    .container { display: flex; gap: 20px; }
+    .main { flex: 2; }
+    .sidebar { flex: 1; background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+    h2 { margin-bottom: 10px; border-radius: 8px;}
+    .search-bar input { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 20px; }
+    .product { background: #fff; padding: 10px; margin-bottom: 10px; border: 1px solid #eee; border-radius: 6px; display: flex; align-items: center; }
+    .product-name { font-weight: bold; }
+    .product-price { color: #d35400; }
+    .cart-empty { color: #888; font-style: italic; } 
+    p {background-color: #0582; border-radius: 8px; text-align: center;}
+    .checkbox {align-items: center;}
+    .product-img { width: 80px; height: 80px; border-radius: 8px; margin-left: auto;}
+    footer { position: fixed; bottom: 0; left: 0; width: 100%; background: #333; color: white; padding: 15px; text-align: center; }
+    </style>
+</head> 
+<body> 
+    <div class="container">
+        <div class="main">
+        <h2> Side Selection</h2>
+        <div class="product">
+            <div class="product-name"> Fries</div>
+            <div class="product-price">( €12.90 ) </div> 
+            <hr>
+            <button onclick="addCart('fries', 16.00)">Add to cart</button>
+            <img src="Pictures/fries.png" class="product-img">
+        </div> 
+        <div class="product"> 
+            <div class="product-name"> Curly Fries</div> 
+            <div class="product-price">( €12.90 ) </div>
+            <hr>
+            <button onclick="addCart('curlyfries', 16.00)">Add to cart</button>
+            <img src="Pictures/curlyfries.png" class="product-img">
+        </div> 
+        <div class="product"> 
+            <div class="product-name">Patatas bravas</div>
+            <div class="product-price">( €12.90 ) </div>
+            <hr>
+            <button onclick="addCart('Patatasbravas', 16.00)">Add to cart</button>
+            <img src="Pictures/patatas.png" class="product-img">
+        </div>
+        <div class="product">
+            <div class="product-name">Salad</div>
+            <div class="product-price">( €16.90 )</div>
+            <hr> 
+            <button onclick="addCart('Garlicbread', 16.00)">Add to cart</button>
+            <img src="Pictures/radishsalad.png" class="product-img">
+        </div>
+        <div class="product">
+            <div class="product-name">Breadsticks</div>
+            <div class="product-price">( €12.90 )</div>
+            <hr>
+            <button onclick="addCart('breadsticks', 16.00)">Add to cart</button>
+            <img src="Pictures/breadsticks.png" class="product-img">
+        </div>
+    </div>
+    <div class="sidebar">
+        <h2>Your order</h2>
+        <div id="cart"></div>
+        <h3 id="total">Total: €0.00</h3>
+        <p> Sauce Selection</p>
+        <input type="checkbox"> Ketchup
+        <br>
+        <input type="checkbox"> Mayonaise
+        <br>
+        <input type="checkbox"> Mustard
+    </div>
+</div>
+<script> 
+var cart = {};
+
+function addCart(name, price) {
+     if (!cart[name]) {
+         cart[name] = { qty: 1, price: price }; 
+    } else {
+         cart[name].qty++; 
+    } 
+    updateCart(); 
+
+} 
+function changeQty(name, amount) {
+    cart[name].qty += amount;
+    if (cart[name].qty <= 0) delete cart[name];
+    updateCart(); 
+}
+function updateCart() {
+    const cartDiv = document.getElementById("cart");
+    cartDiv.innerHTML = "";
+    var total = 0;
+    for (let item in cart) {
+        const entry = cart[item];
+        total += entry.qty * entry.price;
+
+        cartDiv.innerHTML +=`
+        
+        <div class="cart-item">
+        <strong>${item}</strong><br>
+        €${entry.price.toFixed(2)} × ${entry.qty}
+        <br> <button class="qty-btn" onclick="changeQty('${item}', -1)">-</button>
+        <button class="qty-btn" onclick="changeQty('${item}', 1)">+</button>
+        </div> 
+        `; 
+    } 
+    document.getElementById("total").innerText = "Total: €" + total.toFixed(2); 
+
+    if (Object.keys(cart).length === 0) {
+        cartDiv.innerHTML = "<p style='color:#888;'>Cart is empty</p>"; 
+    } 
+} 
+</script>
+
+<footer> © 2025</footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+         h1{
+            color: white;
+            font-size: 22px;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .name{
+            background-color: lightblue;
+            border: 1px solid grey
+        }
+        h2{
+            font-family: Verdana;
+            font-size: 18px;
+            background-color: lightgrey;
+        }
+        .profile{
+            font-size: 14px;
+            font-family: Verdana;
+        }
+        a:link{
+            color: blue
+        }
+        a:hover, a:active{
+            color: red;
+            font-weight: 1000;
+        }
+        h3{
+            background-color: orange;
+            color: green
+        }
+        img {
+            display: block;
+            margin: auto;
+            width: 30%;
+        }
+        p {
+            text-align: center;
+        }
+        header { 
+            background:#b30000; 
+            color: #fff;
+             padding: 1em 0; 
+        }
+        .cartitem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 10px 0;
+        }
+        .cartitem img {
+            width: 70px;
+            height: auto;
+            border-radius: 8px;
+        } 
+        .items {
+            display: flex;
+            flex-direction: column;
+        }
+        .button {
+            padding: 4px 10px;
+        }

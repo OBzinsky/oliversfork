@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Sides Page</title>
+    <style> 
+
+    body { 
+        font-family: Arial, sans-serif;
+        background: #fdf6ec;
+        margin: 20px;
+    } 
+    .container { 
+        display: flex;
+        gap: 60px;
+    }
+    .main {
+        flex: 2;
+    }
+    .sidebar {
+        flex: 1;
+        background: #fff;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    h2 {
+        margin-bottom: 10px;
+        border-radius: 8px;
+    }
+    .search-bar input {
+        width: 100%;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    .product {
+        background: #fff;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        width: 100%
+    }
+    .product-name {
+        font-weight: bold;
+    }
+    .product-price {
+        color: #d35400;
+    }
+    .cart-empty {
+        color: #888;
+        font-style: italic;
+    } 
+    p {
+        background-color: #222;
+        border-radius: 8px;
+        text-align: center;
+        color: #ccc;
+    }
+    .checkbox {
+        align-items: center;
+    }
+    .product-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        margin-left: auto;
+    }
+    footer {
+        background: #222;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+        font-size: 0.9em;
+    }
+    h4 {
+        background-color: #FF0000;
+        color: white;
+        text-align: center;
+        border-radius: 8px
+    }
+    footer a {
+        color: #ddd;
+        margin: 0 1em;
+        text-decoration: none;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+
+    </style>
+</head> 
+<body> 
+    <div class="container">
+        <div class="main">
+        <h2> <b>Side Selection </b></h2>
+        <div class="product">
+            <div class="product-name"> Fries</div>
+            <div class="product-price">( €5.99 ) </div> 
+            
+            <button onclick="addCart('fries', 5.99)">Add to cart</button>
+            <img src="Pictures/fries2.png" class="product-img">
+        </div> 
+        <div class="product"> 
+            <div class="product-name"> Curly Fries</div> 
+            <div class="product-price">( €4.99 ) </div>
+            
+            <button onclick="addCart('curlyfries', 4.99)">Add to cart</button>
+            <img src="Pictures/curlyfries.png" class="product-img">
+        </div> 
+        <div class="product"> 
+            <div class="product-name">Patatas bravas</div>
+            <div class="product-price">( €6.99 ) </div>
+    
+            <button onclick="addCart('Patatasbravas', 6.99)">Add to cart</button>
+            <img src="Pictures/patatas.png" class="product-img">
+        </div>
+        <div class="product">
+            <div class="product-name">Salad</div>
+            <div class="product-price">( €4.99 )</div>
+        
+            <button onclick="addCart('Garlicbread', 4.99)">Add to cart</button>
+            <img src="Pictures/radishsalad.png" class="product-img">
+        </div>
+        <div class="product">
+            <div class="product-name">Breadsticks</div>
+            <div class="product-price">( €3.99 )</div>
+          
+            <button onclick="addCart('breadsticks', 3.99)">Add to cart</button>
+            <img src="Pictures/breadsticks.png" class="product-img">
+        </div>
+    </div>
+    <div class="sidebar">
+        <h2>Your order</h2>
+        <div id="cart"></div>
+        <h3 id="total">Total: €0.00</h3>
+        <h4 id="checkout"> Checkout</h4>
+        <p> Sauce Selection</p>
+        <button type="checkbox" onclick="addCart('Ketchup', 0.50)"> Ketchup (€ 0.50) </button>
+        <br>
+        <button type="checkbox" onclick="addCart('Mayonaise', 0.30)"> Mayonaise ( € 0.30) </button>
+        <br>
+        <button type="checkbox" onclick="addCart('Mustard', 0.40)"> Mustard (€ 0.40) </button>
+        <hr>
+        <!-- I dont know how to get an image into the sidebar-->
+    </div>
+</div>
+<script> 
+var cart = {};
+
+function addCart(name, price) {
+     if (!cart[name]) {
+         cart[name] = { qty: 1, price: price }; 
+    } else {
+         cart[name].qty++; 
+    } 
+    updateCart(); 
+
+} 
+function changeQty(name, amount) {
+    cart[name].qty += amount;
+    if (cart[name].qty <= 0) delete cart[name];
+    updateCart(); 
+}
+function updateCart() {
+    const cartDiv = document.getElementById("cart");
+    cartDiv.innerHTML = "";
+    var total = 0;
+    for (var item in cart) {
+        const entry = cart[item];
+        total += entry.qty * entry.price;
+
+        cartDiv.innerHTML +=`
+        
+        <div class="cart-item">
+        <strong>${item}</strong><br>
+        €${entry.price.toFixed(2)} × ${entry.qty}
+        <br> <button class="qty-btn" onclick="changeQty('${item}', -1)">-</button>
+        <button class="qty-btn" onclick="changeQty('${item}', 1)">+</button>
+        </div> 
+        `; 
+    } 
+    document.getElementById("total").innerText = "Total: €" + total.toFixed(2); 
+
+    if (Object.keys(cart).length === 0) {
+        cartDiv.innerHTML = "<p style='color:#888;'>Cart is empty</p>"; 
+    } 
+} 
+</script>
+
+  <footer>
+    © 2025 Swift Noms Ltd.
+    <p>
+      <a href="#findus">Contact Us</a>
+      <a href="#forum">Forum</a>
+      <a href="#findus">Map</a>
+      <a href="#findus">Address</a>
+      <a href="#terms">Terms & Conditions</a>
+    </p>
+  </footer>
+</body>
+</html>

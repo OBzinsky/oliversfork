@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant Homepage</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #fff; color: #333; }
+    header { background: #222; color: #fff; padding: 1em 0; text-align: center; }
+    nav { margin-top: 0.5em; }
+    nav button {
+      background: #444; color: #fff; border: none; padding: 0.5em 1em;
+      margin: 0 0.5em; cursor: pointer; border-radius: 4px;
+    }
+    .section-title { text-align: center; font-size: 1.8em; margin: 1em 0; }
+    .deals { display: flex; justify-content: center; gap: 1em; padding: 0 2em; }
+    .deals img { width: 30%; border-radius: 8px; }
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1em; padding: 2em;
+    }
+    .menu-item {
+      text-align: center; border: 1px solid #ccc; border-radius: 8px; padding: 1em;
+    }
+    .menu-item img { width: 100%; border-radius: 8px; }
+    .contact-map {
+      display: flex; flex-wrap: wrap; justify-content: space-around;
+      padding: 2em; background: #f9f9f9;
+    }
+    form { max-width: 400px; display: flex; flex-direction: column; gap: 1em; }
+    input, textarea {
+      padding: 0.5em; border: 1px solid #ccc; border-radius: 4px;
+    }
+    iframe { border: 0; width: 400px; height: 300px; border-radius: 8px; }
+    footer {
+      background: #222; color: #fff; text-align: center; padding: 1em;
+      font-size: 0.9em;
+    }
+    footer a { color: #ddd; margin: 0 1em; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Swift Noms</h1>
+    <nav>
+      <button>Menu</button>
+      <button>About US</button>
+      <button>Find Us</button>
+      <button>Terms & Conditions</button>
+    </nav>
+  </header>
+
+  <section>
+    <div class="section-title">Deals / Combos</div>
+    <div class="deals">
+      <img src="pizza.jpg" alt="Pizza Deal">
+      <img src="fries.jpg" alt="Fries Deal">
+      <img src="burger.jpg" alt="Burger Deal">
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Menu</div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="pizza-menu.jpg" alt="Pizza">
+        <p>Pizza</p>
+      </div>
+      <div class="menu-item">
+        <img src="burger-menu.jpg" alt="Burger">
+        <p>Burgers</p>
+      </div>
+      <div class="menu-item">
+        <img src="wrap-menu.jpg" alt="Kebab/Wraps">
+        <p>Kebab / Wraps</p>
+      </div>
+      <div class="menu-item">
+        <img src="drinks-menu.jpg" alt="Drinks">
+        <p>Drinks</p>
+      </div>
+      <div class="menu-item">
+        <img src="sides-menu.jpg" alt="Sides">
+        <p>Sides</p>
+      </div>
+      <div class="menu-item">
+        <img src="kids-menu.jpg" alt="Kids Meal">
+        <p>Kids Meal</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-map">
+    <form>
+      <h2>Contact Us</h2>
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <iframe
+      src="https://www.google.com/maps?q=ATU+Galway+City,+Dublin+Road,+Galway&output=embed"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </section>
+
+  <footer>
+    <p>
+      <a href="#">Contact Us</a>
+      <a href="#">Forum</a>
+      <a href="#">Map</a>
+      <a href="#">Address</a>
+      <a href="#">Terms & Conditions</a>
+    </p>
+    <h6> sdw</h6>
+  </footer>
+
+</body>
+</html>
