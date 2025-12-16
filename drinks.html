@@ -151,55 +151,55 @@
         <!-- ITEMS -->
 
         <div class="item" data-name="Coca-Cola Bottle 330ml">
-            <div class="item-image"><img src="/danish-drinks-images/coca-cola.webp" /></div>
+            <div class="item-image"><img src="danish-drinks-images/coca-cola.webp" /></div>
             <div class="item-info"><div>Coca-Cola Bottle 330ml</div><div>Cost: €2.50</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
         <div class="item" data-name="Pepsi Bottle 750ml">
-            <div class="item-image"><img src="/danish-drinks-images/pepsi.avif" /></div>
+            <div class="item-image"><img src="danish-drinks-images/pepsi.avif" /></div>
             <div class="item-info"><div>Pepsi Bottle 750ml</div><div>Cost: €3.00</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
         <div class="item" data-name="Fanta Bottle 500ml">
-            <div class="item-image"><img src="/danish-drinks-images/fanta.avif" /></div>
+            <div class="item-image"><img src="danish-drinks-images/fanta.avif" /></div>
             <div class="item-info"><div>Fanta Bottle 500ml</div><div>Cost: €3.25</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
         <div class="item" data-name="Tropicana Apple Juice 500ml">
-            <div class="item-image"><img src="/danish-drinks-images/apple.webp" /></div>
+            <div class="item-image"><img src="danish-drinks-images/apple.webp" /></div>
             <div class="item-info"><div>Tropicana Apple Juice 500ml</div><div>Cost: €3.50</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
         <div class="item" data-name="Tropicana Orange Juice 400ml">
-            <div class="item-image"><img src="/danish-drinks-images/orange.jpg" /></div>
+            <div class="item-image"><img src="danish-drinks-images/orange.jpg" /></div>
             <div class="item-info"><div>Tropicana Orange Juice 400ml</div><div>Cost: €3.50</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
         <div class="item" data-name="Tropical Zest Juice 300ml">
-            <div class="item-image"><img src="/danish-drinks-images/tropical-.webp" /></div>
+            <div class="item-image"><img src="danish-drinks-images/tropical-.webp" /></div>
             <div class="item-info"><div>Tropical Zest Juice 300ml</div><div>Cost: €3.75</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
         <div class="item" data-name="Tropicana Mango Juice 250ml">
-            <div class="item-image"><img src="/danish-drinks-images/mango.jpg" /></div>
+            <div class="item-image"><img src="danish-drinks-images/mango.jpg" /></div>
             <div class="item-info"><div>Tropicana Mango Juice 250ml</div><div>Cost: €3.75</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
         <div class="item" data-name="Lipton Peach Ice Tea 500ml">
-            <div class="item-image"><img src="/danish-drinks-images/peach.avif" /></div>
+            <div class="item-image"><img src="danish-drinks-images/peach.avif" /></div>
             <div class="item-info"><div>Lipton Peach Ice Tea 500ml</div><div>Cost: €3.00</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
 
         <div class="item" data-name="Bottled Water 500ml">
-            <div class="item-image"><img src="/danish-drinks-images/water.jpg" /></div>
+            <div class="item-image"><img src="danish-drinks-images/water.jpg" /></div>
             <div class="item-info"><div>Bottled Water 500ml</div><div>Cost: €1.50</div></div>
             <div class="counter"><button class="minus">-</button><span class="count">0</span><button class="plus">+</button></div>
         </div>
@@ -213,58 +213,58 @@
     </div>
 
 </div>
-
 <script>
-// Get all the items and the cart area
-const items = document.querySelectorAll(".item");
 const cart = document.getElementById("cart");
 
-// Loop through each item
-items.forEach(function(item) {
+// Add a cart total display
+const cartTotal = document.createElement("div");
+cartTotal.style.marginTop = "20px";
+cartTotal.style.fontWeight = "bold";
+cartTotal.innerText = "Total: €0.00";
+cart.appendChild(cartTotal);
 
-    // Get the name from data-name=""
-    const name = item.dataset.name;
+let totalPrice = 0;
 
-    // Get the buttons and count display
-    const minusBtn = item.querySelector(".minus");
-    const plusBtn = item.querySelector(".plus");
-    const countDisplay = item.querySelector(".count");
+// Example: Coca-Cola
+function colaCartUpdate(action) {
+    const price = 2.50;
+    const countDisplay = document.querySelectorAll(".count")[0]; // first item
+    let count = parseInt(countDisplay.innerText);
+    const cartItem = document.querySelectorAll("p")[0]; // first <p> in cart
 
-    // Store quantity (like a variable in C)
-    let count = 0;
-
-    // Create an empty cart line for this item
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart-item");
-    cartItem.innerText = name + " x0";
-    cart.appendChild(cartItem);
-
-    // When + button is clicked
-    plusBtn.onclick = function () {
-        count = count + 1;
-        countDisplay.innerText = count;
-        updateCart();
-    };
-
-    // When - button is clicked
-    minusBtn.onclick = function () {
-        if (count > 0) {
-            count = count - 1;
-            countDisplay.innerText = count;
-            updateCart();
+    if (action === "plus") {
+        if (count === 0) {
+            cartItem.classList.add("pItem2");
         }
-    };
-
-    // Function to update the cart display
-    function updateCart() {
+        count++;
+        totalPrice += price;
+    } else if (action === "minus") {
         if (count > 0) {
-            cartItem.classList.add("active");
-            cartItem.innerText = name + " x" + count;
-        } else {
-            cartItem.classList.remove("active");
+            count--;
+            totalPrice -= price;
+            if (count === 0) {
+                cartItem.classList.remove("pItem2");
+            }
         }
     }
-});
+
+    countDisplay.innerText = count;
+    cartItem.innerText = "Coca-Cola Bottle 330ml x" + count;
+    updateTotal();
+}
+
+// Add more functions for Pepsi, Fanta, etc. (same structure)
+
+// Update total price
+function updateTotal() {
+    cartTotal.innerText = "Total: €" + totalPrice.toFixed(2);
+}
+
+// Hook up buttons
+document.querySelectorAll(".plus")[0].onclick = () => colaCartUpdate("plus");
+document.querySelectorAll(".minus")[0].onclick = () => colaCartUpdate("minus");
+
+// Repeat for other items with their own functions
 </script>
 
 
