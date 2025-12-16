@@ -7,7 +7,25 @@ The Group-C-project is a collaborative web development project hosted on GitHub.
 • 	Latest commit: More changes to main and drinks (Dec 16, 2025)
 
 2. Repository Structure
-
+Group-C-project/
+│
+├── adamsbranch/              # Pizza and burger-related pages
+│   ├── pizza.html
+│   ├── burgers.html
+│   └── images/
+│
+├── danish-drinks-images/     # Image assets for drinks page
+│   ├── coca-cola.webp
+│   ├── pepsi.avif
+│   ├── fanta.avif
+│   └── ...
+│
+├── Kebab.html                # Kebab/Wraps menu page
+├── drinks.html               # Drinks menu page
+├── main-page.html            # Homepage with navigation and deals
+├── main-page.css             # Stylesheet for homepage
+├── drinks-page.css           # Stylesheet for drinks page
+└── drinks-page.js            # JavaScript for cart functionality
 
 3. Key Features
 • 	Homepage ()
@@ -33,20 +51,6 @@ The Group-C-project is a collaborative web development project hosted on GitHub.
 • 	Defines layout grids, sidebar styling, buttons, and responsive design.
 • 	Uses warm and modern color palettes for readability and appeal.
 
-4. Setup Instructions
-1. 	Clone the repository:
-
-2. 	Navigate into the project folder:
-
-3. 	Open  in a browser to view the homepage.
-4. 	Navigate through links to access drinks, kebabs, and other menu pages.
-
-5. Usage Notes
-• 	Cart functionality works only on the drinks page ().
-• 	Ensure all images in  are correctly referenced (relative paths).
-• 	Minimum width is enforced in CSS () for layout stability.
-• 	Deals images trigger alerts with promotional messages when clicked.
-
 6. Future Improvements
 • 	Add responsive design for mobile devices (media queries).
 • 	Replace alert popups with styled modal dialogs for deals.
@@ -54,11 +58,7 @@ The Group-C-project is a collaborative web development project hosted on GitHub.
 • 	Add user authentication for personalized cart saving.
 • 	Enhance accessibility (ARIA labels, keyboard navigation).
 
-7. Contribution Guidelines
-• 	Fork the repository and create a new branch for changes.
-• 	Follow consistent naming conventions for files and commits.
-• 	Test changes locally before submitting a pull request.
-• 	Use descriptive commit messages (e.g., “Added responsive layout for drinks page”).
+
 
 8. License
 NA
