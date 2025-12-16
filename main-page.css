@@ -1,13 +1,14 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #fff;
+  background: #fdfdfd; /* soft off-white */
   color: #333;
   min-width: 500px;
 }
 
+/* Header */
 header {
-  background: #b30000;
+  background: #006d77; /* deep teal */
   color: #fff;
   padding: 1em 0;
 }
@@ -29,7 +30,7 @@ nav {
 }
 
 nav a {
-  background: #444;
+  background: #83c5be; /* lighter teal */
   color: #fff;
   border: none;
   padding: 0.5em 1em;
@@ -38,15 +39,23 @@ nav a {
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
+  transition: background 0.3s;
 }
 
+nav a:hover {
+  background: #ffd166; /* golden hover */
+  color: #333;
+}
+
+/* Section titles */
 .section-title {
   text-align: center;
   font-size: 1.8em;
   margin: 1em 0;
+  color: #006d77; /* teal accent */
 }
 
-/* Deals section with 3 boxes */
+/* Deals section */
 .deals {
   display: flex;
   justify-content: center;
@@ -57,29 +66,37 @@ nav a {
 .deal-box {
   width: 250px;
   height: 180px;
-  border: 2px solid #ccc;
+  border: 2px solid #83c5be;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2em;
-  color: #999;
-  background: #fdfdfd;
+  color: #555;
+  background: #edf6f9; /* pale teal background */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Menu grid fixed to 3 columns */
+.deal-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Menu grid */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* always 3 per row */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1em;
   padding: 2em;
 }
 
 .menu-item {
   text-align: center;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1em;
+  background: #fff;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .menu-item img {
@@ -87,12 +104,18 @@ nav a {
   border-radius: 8px;
 }
 
+.menu-item:hover {
+  background: #ffd166; /* golden highlight */
+  transform: translateY(-5px);
+}
+
+/* Contact + Map */
 .contact-map {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 2em;
-  background: #f9f9f9;
+  background: #fafafa;
 }
 
 form {
@@ -109,6 +132,20 @@ textarea {
   border-radius: 4px;
 }
 
+button {
+  background: #006d77;
+  color: #fff;
+  border: none;
+  padding: 0.7em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #118ab2; /* brighter teal */
+}
+
 iframe {
   border: 0;
   width: 400px;
@@ -116,8 +153,9 @@ iframe {
   border-radius: 8px;
 }
 
+/* Footer */
 footer {
-  background: #222;
+  background: #006d77;
   color: #fff;
   text-align: center;
   padding: 1em;
@@ -125,7 +163,12 @@ footer {
 }
 
 footer a {
-  color: #ddd;
+  color: #ffd166; /* golden links */
   margin: 0 1em;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
 }
