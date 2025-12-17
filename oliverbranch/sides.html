@@ -168,11 +168,6 @@ function addCart(name, price) {
     updateCart(); 
 
 } 
-function changeQty(name, amount) {
-    cart[name].qty += amount;
-    if (cart[name].qty <= 0) delete cart[name];
-    updateCart(); 
-}
 function updateCart() {
     const cartDiv = document.getElementById("cart");
     cartDiv.innerHTML = "";
