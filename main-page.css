@@ -1,23 +1,23 @@
 body {
-  font-family: Arial, sans-serif;
+
   margin: 0;
-  background: #fdfdfd; /* soft off-white */
+  background: #fdfdfd; 
   color: #333;
   min-width: 500px;
 }
 
-/* Header */
+
 header {
-  background: #006d77; /* deep teal */
+  background: #006d77; /* header  config*/
   color: #fff;
-  padding: 1em 0;
+  padding: 20px;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1em;
+  gap: 10px;
 }
 
 .logo-container img {
@@ -25,42 +25,39 @@ header {
 }
 
 nav {
-  margin-top: 0.5em;
+  margin-top: 70px;
   text-align: center;
 }
 
 nav a {
-  background: #83c5be; /* lighter teal */
+  background: #83c5be; 
   color: #fff;
-  border: none;
-  padding: 0.5em 1em;
-  margin: 0 0.5em;
+  padding: 10px 20px;
+  margin: 10px;
   cursor: pointer;
   border-radius: 4px;
-  text-decoration: none;
   display: inline-block;
-  transition: background 0.3s;
 }
 
 nav a:hover {
-  background: #ffd166; /* golden hover */
+  background: #ffd166; /* gold hover over elemnets */
   color: #333;
 }
 
-/* Section titles */
+
 .section-title {
   text-align: center;
-  font-size: 1.8em;
-  margin: 1em 0;
-  color: #006d77; /* teal accent */
+  font-size: 30px;
+  margin: 10px;
+  color: #13abb9;
 }
 
-/* Deals section */
+
 .deals {
   display: flex;
   justify-content: center;
-  gap: 1em;
-  padding: 2em;
+  gap: 20px;
+  padding: 30px;
 }
 
 .deal-box {
@@ -71,63 +68,63 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
   color: #555;
-  background: #edf6f9; /* pale teal background */
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #edf6f9;
 }
 
 .deal-box:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background: #ffd166; /* gold hover over elemnets */
+
 }
 
-/* Menu grid */
+
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1em;
-  padding: 2em;
+  gap: 10px;
+  padding: 20px;
 }
 
 .menu-item {
   text-align: center;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 1em;
+  padding: 3px;
   background: #fff;
-  transition: background 0.3s, transform 0.3s;
+  margin: 20px;
+ 
 }
 
 .menu-item img {
-  width: 100%;
+  width: 50%;
   border-radius: 8px;
 }
 
 .menu-item:hover {
-  background: #ffd166; /* golden highlight */
-  transform: translateY(-5px);
+  background: #ffd166; /* gold hover over elemnets  */
+    transform: scale(1.05);
 }
 
-/* Contact + Map */
+
 .contact-map {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 2em;
-  background: #fafafa;
+  background: #6ca2a7;
 }
 
 form {
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 10px;
 }
 
 input,
 textarea {
-  padding: 0.5em;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -136,14 +133,14 @@ button {
   background: #006d77;
   color: #fff;
   border: none;
-  padding: 0.7em;
+  padding: 7px;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s;
+ 
 }
 
 button:hover {
-  background: #118ab2; /* brighter teal */
+  background: #e4d127; /* brighter teal */
 }
 
 iframe {
@@ -153,7 +150,7 @@ iframe {
   border-radius: 8px;
 }
 
-/* Footer */
+
 footer {
   background: #006d77;
   color: #fff;
@@ -163,12 +160,10 @@ footer {
 }
 
 footer a {
-  color: #ffd166; /* golden links */
-  margin: 0 1em;
-  text-decoration: none;
-  transition: color 0.3s;
+  color: black;
+  margin: 10px;
 }
 
 footer a:hover {
-  color: #fff;
+  color: hsl(52, 92%, 60%);
 }
