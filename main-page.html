@@ -53,13 +53,13 @@
       </div>
       
       <div class="menu-item">
-        <a href="Kebab.html"><img src="oliverbranch/Pictures/kebabswraps.jpg" alt="Kebabs/Wraps"></a>
+        <a href="/branch-danish/Kebab.html"><img src="oliverbranch/Pictures/kebabswraps.jpg" alt="Kebabs/Wraps"></a>
         <p> <b>Kebab / Wraps </b></p>
       </div>
     
       <div class="menu-item">
         
-        <a href="drinks.html"><img src="images/6660ca666d7a7bddccd02b3b_Assorted colorful drinks garnished with ice and fruit slices.webp" alt="Drinks"></a>
+        <a href="/branch-danish/drinks.html"><img src="images/6660ca666d7a7bddccd02b3b_Assorted colorful drinks garnished with ice and fruit slices.webp" alt="Drinks"></a>
         <p>Drinks</p>
       </div>
       <div class="menu-item">
@@ -116,42 +116,12 @@
     </p>
   </footer>
 <script>
-// Select all deal images
-let kidsClickCount = 0;
+
 
 // Grab the menu grid
 const menuGrid = document.querySelector('.menu-grid');
 
-// Grab specific menu items
-const pizzaItem   = document.querySelector('.menu-item img[alt="Pizza"]').parentElement;
-const burgerItem  = document.querySelector('.menu-item img[alt="Burger"]').parentElement;
-const drinksItem  = document.querySelector('.menu-item img[alt="Drinks"]').parentElement;
-const kebabItem   = document.querySelector('.menu-item img[alt="Kebab/Wraps"]').parentElement;
-const sidesItem   = document.querySelector('.menu-item img[alt="Sides"]').parentElement;
-const kidsMealItem= document.querySelector('.menu-item img[alt="Kids Meal"]').parentElement;
 
-kidsMealItem.addEventListener("click", () => {
-  kidsClickCount++;
-
-  if (kidsClickCount === 3) {
-    // Change layout to 2 columns
-    menuGrid.style.gridTemplateColumns = "repeat(2, 1fr)";
-
-    // Hide unwanted items
-    sidesItem.style.display = "none";
-    kidsMealItem.style.display = "none";
-    kebabItem.style.display = "none";
-
-    // Show only pizza, burger, drinks
-    pizzaItem.style.display = "block";
-    burgerItem.style.display = "block";
-    drinksItem.style.display = "block";
-
-    // Place drinks centered on the next row (span both columns)
-    drinksItem.style.gridColumn = "1 / span 2";
-    drinksItem.style.textAlign = "center";
-  }
-});
 
 
 const dealImages = document.querySelectorAll(".deal-box img");
